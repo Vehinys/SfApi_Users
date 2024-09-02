@@ -6,6 +6,7 @@ use App\HttpClient\ApiHttpClient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\component\HttpFoundation\Request;
 
 class ApiController extends AbstractController
 {
@@ -17,8 +18,8 @@ class ApiController extends AbstractController
     ): Response {
 
         $users = $apiHttpClient->getUsers();
-        return $this->render('api/index.html.twig', [
-            'users' => '$users',
+        return $this->render('user/index.html.twig', [
+            'users' => $users
         ]);
     }
 }
