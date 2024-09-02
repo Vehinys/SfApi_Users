@@ -37,11 +37,14 @@ class Membre
     #[ORM\Column(length: 255)]
     private ?string $streetname = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 50)]
     private ?string $postcode = null;
 
     #[ORM\Column(length: 50)]
     private ?string $country = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $city = null;
 
     public function getId(): ?int
     {
@@ -164,6 +167,18 @@ class Membre
     public function setCountry(string $country): static
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): static
+    {
+        $this->city = $city;
 
         return $this;
     }
