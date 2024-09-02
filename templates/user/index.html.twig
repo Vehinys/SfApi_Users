@@ -33,4 +33,20 @@
     </div>
     {% endfor %}
 </div>
+<div class="data">
+    <form action="{{path('membre_add')}}" method="post">
+        <input type="hidden" name="title"         value="{{user.name.title}}">             </input>
+        <input type="hidden" name="last"          value="{{user.name.last}}">              </input>
+        <input type="hidden" name="first"         value="{{user.name.first}}">             </input>
+        <input type="hidden" name="email"         value="{{user.email}}">                  </input>
+        <input type="hidden" name="phone"         value="{{user.phone}}">                  </input>
+        <input type="hidden" name="picture"       value="{{user.picture.large}}">          </input>
+        <input type="hidden" name="streetnumber"  value="{{user.location.street.number}}"> </input>
+        <input type="hidden" name="streetname"    value="{{user.location.street.name}}">   </input>
+        <input type="hidden" name="postcode"      value="{{user.location.postcode}}">      </input>
+        <input type="hidden" name="country"       value="{{user.location.country}}">       </input>
+        <button type="submit">
+            <i class="ri-folder-add-line plus"></i>
+    </form>
+</div>
 {% endblock %}
