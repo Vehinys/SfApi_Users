@@ -39,4 +39,39 @@ main{
 .user img{
     width: 80px;
     border-radius: 50%;
+    filter:grayscale(1);
+    transition: .5s;
+}
+
+.user:hover img{
+    filter:grayscale(0);
+}
+
+.user:hover{
+    transform: translateY(-5px);
+}
+
+.top{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 15px; 
+    border-radius: 0 0 16px 16px;
+}
+
+.txt-light{
+    color: #666666;
+}
+
+.plus a{
+    text-decoration: none;
+    color: #c80c54;
+    font-size: 1.4rem;
 }
