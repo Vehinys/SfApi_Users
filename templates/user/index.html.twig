@@ -8,45 +8,49 @@
 
 <div class="users">
     {% for user in users.results %}
-    <div class="user">
-        <div class="top">
-            <div>
-                <h2>{{ user.name.title }} {{ user.name.last }} {{ user.name.first }} </h2>
-                <p class="txt-light"><i class="ri-mail-line"></i>&nbsp; {{ user.email }} </p>
-                <p class="txt-light"><i class="ri-smarphone-line"></i>&nbsp; {{ user.phone }} </p>
+        <div class="user">
+            <div class="top">
+                <div>
+                    <h2>{{ user.name.title }} {{ user.name.last }} {{ user.name.first }} </h2>
+                    <p class="txt-light"><i class="ri-mail-line"></i>&nbsp; {{ user.email }} </p>
+                    <p class="txt-light"><i class="ri-smarphone-line"></i>&nbsp; {{ user.phone }} </p>
+                </div>
+                <div>
+                    <img src="{{ user.picture.large }}" alt="">
+                </div>
             </div>
-            <div>
-                <img src="{{ user.picture.large }}" alt="">
-            </div>
-        </div>
-        <div class="details">
-            <div>
-                <i class="ri-map-pin-2-line"></i>&nbsp; {{ user.location.street.number }}, {{ user.location.street.name }} <br>
-                <p>{{ user.location.postcode }} {{ user.location.city }}</p>
-                <p>{{ user.location.country }}</p>
-            </div>
-            <div>
-                <p class="plus"><a href=""><i class="ri-folder-add-line"></i></a></p>
+            <div class="details">
+                <div>
+                    <i class="ri-map-pin-2-line"></i>&nbsp; {{ user.location.street.number }}, {{ user.location.street.name }} <br>
+                    <p>{{ user.location.postcode }} {{ user.location.city }}</p>
+                    <p>{{ user.location.country }}</p>
+                </div>
+                <div class="data">
+                    <form action="{{path('membre_add')}}" method="post">
+                        <input type="hidden" name="title"         value="{{user.name.title}}">             </input>
+                        <input type="hidden" name="last"          value="{{user.name.last}}">              </input>
+                        <input type="hidden" name="first"         value="{{user.name.first}}">             </input>
+                        <input type="hidden" name="email"         value="{{user.email}}">                  </input>
+                        <input type="hidden" name="phone"         value="{{user.phone}}">                  </input>
+                        <input type="hidden" name="picture"       value="{{user.picture.large}}">          </input>
+                        <input type="hidden" name="streetnumber"  value="{{user.location.street.number}}"> </input>
+                        <input type="hidden" name="streetname"    value="{{user.location.street.name}}">   </input>
+                        <input type="hidden" name="postcode"      value="{{user.location.postcode}}">      </input>
+                        <input type="hidden" name="city"          value="{{user.location.city}}">          </input>
+                        <input type="hidden" name="country"       value="{{user.location.country}}">       </input>
+                        <input type="hidden" name="uuid"          value="{{user.login.uuid}}">             </input>
+                        
+                        <button type="submit">
+                            <i class="ri-folder-add-line plus"></i>
+                        </button>
+                    </form>
 
             </div>
         </div>
-    </div>
-    {% endfor %}
+        </div>
+        {% endfor %}
 </div>
-<div class="data">
-    <form action="{{path('membre_add')}}" method="post">
-        <input type="hidden" name="title"         value="{{user.name.title}}">             </input>
-        <input type="hidden" name="last"          value="{{user.name.last}}">              </input>
-        <input type="hidden" name="first"         value="{{user.name.first}}">             </input>
-        <input type="hidden" name="email"         value="{{user.email}}">                  </input>
-        <input type="hidden" name="phone"         value="{{user.phone}}">                  </input>
-        <input type="hidden" name="picture"       value="{{user.picture.large}}">          </input>
-        <input type="hidden" name="streetnumber"  value="{{user.location.street.number}}"> </input>
-        <input type="hidden" name="streetname"    value="{{user.location.street.name}}">   </input>
-        <input type="hidden" name="postcode"      value="{{user.location.postcode}}">      </input>
-        <input type="hidden" name="country"       value="{{user.location.country}}">       </input>
-        <button type="submit">
-            <i class="ri-folder-add-line plus"></i>
-    </form>
-</div>
+
+
 {% endblock %}
+
